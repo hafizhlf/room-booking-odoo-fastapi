@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <record id="seq_room_booking" model="ir.sequence">
+        <field name="name">Room Booking Number</field>
+        <field name="code">room.booking</field>
+        <field name="prefix">%(day)s%(month)s%(year)s/</field>
+        <field name="padding">6</field>
+        <field name="implementation">standard</field>
+    </record>
+
+</odoo>

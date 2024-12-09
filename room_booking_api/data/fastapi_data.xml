@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="room_booking_fastapi" model="fastapi.endpoint">
+        <field name="name">Track Booking</field>
+        <field name="root_path">/book_track</field>
+        <field name="app">room_booking</field>
+    </record>
+
+</odoo>

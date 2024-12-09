@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_room_booking_tree" model="ir.ui.view">
+        <field name="name">room.booking.tree</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <tree string="Room Booking">
+                <field name="name" />
+                <field name="room_id" />
+                <field name="booking_name" />
+                <field name="booking_date" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_room_booking_form" model="ir.ui.view">
+        <field name="name">room.booking.form</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <form string="Room Booking">
+                <header>
+                    <button name="action_set_ongoing" type="object" string="Set to Ongoing"
+                        class="btn-primary" invisible="state != 'draft'" />
+                    <button name="action_set_done" type="object" string="Set to Done"
+                        class="btn-success" invisible="state != 'ongoing'" />
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,ongoing,done" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1" force_save="1" />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="room_id" readonly="state != 'draft'" />
+                        <field name="booking_name" readonly="state != 'draft'" />
+                        <field name="booking_date" readonly="state != 'draft'" />
+                        <field name="notes" readonly="state != 'draft'" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="room_booking_view_search" model="ir.ui.view">
+        <field name="name">room.booking.view.search</field>
+        <field name="model">room.booking</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter name="filter_draft" string="Draft" domain="[('state', '=', 'draft')]" />
+                <filter name="filter_ongoing" string="Ongoing" domain="[('state', '=', 'ongoing')]" />
+                <filter name="filter_done" string="Done" domain="[('state', '=', 'done')]" />
+                <group expand="0" string="Group By">
+                    <filter string="Booking Number" name="booking_number" domain="[]"
+                        context="{'group_by': 'name'}" />
+                    <filter string="Status" name="booking_state" domain="[]"
+                        context="{'group_by': 'state'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_room_booking" model="ir.actions.act_window">
+        <field name="name">Room Booking</field>
+        <field name="res_model">room.booking</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="room_booking_view_search" />
+    </record>
+</odoo>

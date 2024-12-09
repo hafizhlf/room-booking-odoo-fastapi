@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="tunas_base_category" model="ir.module.category">
+        <field name="name">Tunas Access Right</field>
+        <field name="sequence">100</field>
+    </record>
+    <record id="room_booking_category" model="ir.module.category">
+        <field name="name">Room Booking</field>
+        <field name="parent_id" ref="tunas_base_category" />
+        <field name="sequence">10</field>
+    </record>
+    <record id="room_booking_ro_group" model="res.groups">
+        <field name="name">Read-Only</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="category_id" ref="room_booking_category"/>
+    </record>
+    <record id="room_booking_manager_group" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="implied_ids" eval="[(4, ref('room_booking_manager.room_booking_ro_group'))]" />
+        <field name="category_id" ref="room_booking_category"/>
+    </record>
+</odoo>

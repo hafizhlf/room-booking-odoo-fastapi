@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ro_room_master_user,access.room.master.user,model_room_master,room_booking_ro_group,1,0,0,0
+access_room_master_user,access.room.master.user,model_room_master,room_booking_manager_group,1,1,1,1
+access_ro_room_booking_user,access.room.booking.user,model_room_booking,room_booking_ro_group,1,0,0,0
+access_room_booking_user,access.room.booking.user,model_room_booking,room_booking_manager_group,1,1,1,1

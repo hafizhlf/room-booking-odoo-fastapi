@@ -1,0 +1,27 @@
+services:
+  odoo:
+    image: helloworld:latest
+    depends_on:
+      - odoo-db
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+    ports:
+      - "8010:8069"
+    environment:
+      HOST: odoo-db
+      PASSWORD: secret
+    restart: unless-stopped
+
+  odoo-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:

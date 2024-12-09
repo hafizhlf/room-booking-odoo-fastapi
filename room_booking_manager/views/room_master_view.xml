@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_room_master_tree" model="ir.ui.view">
+        <field name="name">room.master.tree</field>
+        <field name="model">room.master</field>
+        <field name="arch" type="xml">
+            <tree string="Room Master">
+                <field name="name" />
+                <field name="room_type" />
+                <field name="location" />
+                <field name="capacity" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_room_master_form" model="ir.ui.view">
+        <field name="name">room.master.form</field>
+        <field name="model">room.master</field>
+        <field name="arch" type="xml">
+            <form string="Room Master">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="room_type" />
+                        <field name="location" />
+                        <field name="photo" />
+                        <field name="capacity" />
+                        <field name="description" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_room_master" model="ir.actions.act_window">
+        <field name="name">Room Master</field>
+        <field name="res_model">room.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
