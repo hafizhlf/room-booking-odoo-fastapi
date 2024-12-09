@@ -6,7 +6,7 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
     ports:
-      - "8010:8069"
+      - "8069:8069"
     environment:
       HOST: odoo-db
       PASSWORD: secret
