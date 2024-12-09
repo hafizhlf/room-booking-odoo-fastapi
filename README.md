@@ -2,7 +2,7 @@
 
 ## Overview
 
-This module demonstrating the integration of Odoo and FastAPI to provide a RESTful API for room booking management.
+This module demonstrates the integration of Odoo and FastAPI to provide a RESTful API for room booking management.
 
 ## Features
 
@@ -23,7 +23,19 @@ This module demonstrating the integration of Odoo and FastAPI to provide a RESTf
     git clone https://github.com/hafizhlf/room-booking-odoo-fastapi
     ```
 
-2. Activate the module through the Odoo Apps interface.
+2. Build the Docker image using the provided `Dockerfile`:
+
+    ```bash
+    docker build -t room-booking-api .
+    ```
+
+3. For convenience, a `docker-compose.yml` file is provided to easily set up the environment. Simply run:
+
+    ```bash
+    docker-compose up
+    ```
+
+4. Activate the module through the Odoo Apps interface.
 
 ## Usage
 

@@ -1,6 +1,6 @@
 services:
   odoo:
-    image: helloworld:latest
+    build: .
     depends_on:
       - odoo-db
     volumes:
