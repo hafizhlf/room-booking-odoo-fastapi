@@ -1,4 +1,3 @@
-
 # Usage Guide for Room Booking Manager Integration with FastAPI
 
 ## Steps to Use:
@@ -18,7 +17,17 @@
    - Select the **Track Booking** data.  
    - Click the **Sync Registry** button to synchronize booking data with the FastAPI backend.
 
-4. **Access API Documentation**    
-   - You can now access the **API Docs** to explore and interact with the available endpoints in the **FastAPI Form Views**.
+4. **Use API Key for External Access**  
+   - To interact with the API, you must use an **API Key**.  
+   - Refer to the [Odoo API Key Documentation](https://www.odoo.com/documentation/17.0/developer/reference/external_api.html#api-keys) to generate and configure your API Key.  
+   - Include the **API Key** in the `api-key` header when making requests to FastAPI endpoints.  
+     ```http
+     POST /room_booking/booking_status HTTP/1.1
+     Host: your-odoo-instance.com
+     api-key: your_api_key
+     ```
+
+5. **Access API Documentation**  
+   - You can explore and interact with the available endpoints by accessing the **API Docs** in the **FastAPI Form Views** section of Odoo.
 
 You're all set to use the Room Booking Manager module with FastAPI!
