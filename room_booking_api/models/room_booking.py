@@ -1,5 +1,6 @@
 from typing import Annotated
 from fastapi import APIRouter, HTTPException, Depends
+from fastapi.responses import JSONResponse
 from odoo import fields, models
 from odoo.api import Environment
 from odoo.addons.fastapi.dependencies import odoo_env
@@ -21,9 +22,9 @@ rb_api_router = APIRouter()
 
 @rb_api_router.post("/room_booking/booking_status")
 def get_booking_status(id: int, env: Annotated[Environment, Depends(odoo_env)]):
-    booking = env['room.booking'].sudo().browse(id)
+    booking = env['room.booking'].sudo().search([('id', '=', id)])
     if not booking:
-        raise HTTPException(status_code=404, detail="Booking not found")
+        return JSONResponse(status_code=404, content={"message": "Booking not found"})
 
     return {
         'booking_number': booking.name,
