@@ -28,6 +28,7 @@
      ```
 
 5. **Access API Documentation**  
-   - You can explore and interact with the available endpoints by accessing the **API Docs** in the **FastAPI Form Views** section of Odoo.
+   - The API documentation is available via the **Docs URL**, which can be found in the **FastAPI Endpoint Form Views** section in Odoo.  
+   - Use the **Docs URL** to explore and interact with all available FastAPI endpoints.
 
 You're all set to use the Room Booking Manager module with FastAPI!
